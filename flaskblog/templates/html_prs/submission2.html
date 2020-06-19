@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <nav class="navigation">
+        <ul>
+          <li><a class="home" style="font-weight: bold" style="color: white" href="/">Home</a></li>
+          <li><a class="home" style="font-weight: bold" style="color: white"  href="{{ url_for("main.htmls") }}">More Templates</a></li>
+        </ul>
+    </nav>
+    <title>Required</title>
+    <link rel="stylesheet" href="{{url_for('static', filename="css/htmls/style_form2.css")}}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <script type="text/javascript" src="login.js" defer></script>
+  </head>
+  <body>
+    <section class="overlay">
+      <h1 id="message"></h1>
+      <a href="{{ url_for('htmls.form2') }}">Go back</a>
+    </section>
+  </body>
+</html>

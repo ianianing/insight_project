@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <nav class="navigation">
+    <ul>
+      <li><a class="home" style="color: darkblue" href="/">Home</a></li>
+        <br>
+      <li><a class="home" style="color: darkblue"  href="{{ url_for("main.htmls") }}">More Template</a></li>
+    </ul>
+  </nav>
+  <title>Color - HSLA</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/htmls/style_color.css') }}">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="midground">
+      <div class="foreground"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mls/style_ps.css') }}">
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('ml.test_predict')}}"method="post">
+         <select name="category1">
+            <option value="1">Adventure</option>
+            <option value="2">Drama</option>
+         </select>
+          <select name="category2">
+            <option value="1">Adventure</option>
+            <option value="2">Drama</option>
+         </select>
+          <select name="category3">
+            <option value="1">Adventure</option>
+            <option value="2">Drama</option>
+         </select>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <br>
+   <br>
+   <br>
+   <br>
+
+    <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" style="color: white" href="{{ url_for('main.ml_models') }}">Select Other Models</a>
+        <br>
+        <br>
+        <a class="nav-item nav-link" style="color: white" href="{{ url_for('main.home') }}">Back to Home</a>
+    </div>
+ </div>
+
+
+
+</body>
+</html>
