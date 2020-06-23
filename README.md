@@ -23,10 +23,11 @@ By default, flask will run on port 5000.
 
 2. Navigate to URL http://localhost:5000 
 
-You should be able to view the homepage as below :
+Users should be able to view the homepage as below :
 ![alt text](https://github.com/ianianing/example/blob/master/home.png)
 
-Enter valid numerical values in all 3 input boxes and hit Predict.
+Users should enter all 7 features for the upcoming sneaker they want to predict.
+![alt text](https://github.com/ianianing/example/blob/master/sample_selection.png)
 
-If everything goes well, you should  be able to see the predcited salary vaule on the HTML page!
-![alt text](http://www.thepythonblog.com/wp-content/uploads/2019/02/Result.png)
+If everything goes well, users should  be able to results on a new html page as below!
+![alt text](https://github.com/ianianing/example/blob/master/sample_results.png)
