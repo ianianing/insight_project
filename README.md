@@ -26,7 +26,7 @@ By default, flask will run on port 5000.
 Users should be able to view the homepage as below :
 ![alt text](https://github.com/ianianing/example/blob/master/home.png)
 
-Users should enter all 7 features for the upcoming sneaker they want to predict.
+Users should select all 7 features for the upcoming sneaker they want to predict.
 ![alt text](https://github.com/ianianing/example/blob/master/sample_selection.png)
 
 If everything goes well, users should  be able to see results on a new html page as below!
