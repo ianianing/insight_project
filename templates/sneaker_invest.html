@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Sneaker Investment- Your Personal Sneaker Investment Advisor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_sneaker.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.searchableSelect.css') }}"/>
+<script src="{{ url_for('static', filename='js/jquery-1.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.searchableSelect.js') }}"></script>
+</head>
+		<style>
+			select {
+				width: 230px;
+				height: 30px;
+				margin-bottom: 5px;
+			}
+			.searchable-select-holder{
+				width: 230px;
+			}
+			a{
+				color:yellow;
+				text-decoration:none;
+			}
+
+		</style>
+<body>
+ <div class="login">
+	<h1>Sneaker Investment</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('sneaker_predict')}}"method="post">
+        <select name="colo" id="colo" required>
+          <option disabled selected value>Sneaker Model?</option>
+          <option value="0">Adidas NMD</option>
+          <option value="1">Adidas Others</option>
+          <option value="2">Adidas Ultra Boost</option>
+          <option value="3">Jordan 1 High</option>
+          <option value="4">Jordan 1 Low</option>
+          <option value="5">Jordan 1 Mid</option>
+          <option value="6">Jordan 11</option>
+          <option value="7">Jordan 12</option>
+          <option value="8">Jordan 13</option>
+          <option value="9">Jordan 3</option>
+          <option value="10">Jordan 4</option>
+          <option value="11">Jordan 5</option>
+          <option value="12">Jordan 6</option>
+          <option value="13">Jordan Other</option>
+          <option value="14">Nike Air Force 1</option>
+          <option value="15">Nike Air Max</option>
+          <option value="16">Nike Dunk</option>
+          <option value="17">Nike Other</option>
+          <option value="18">Nike SB Dunk</option>
+          <option value="19">Yeezy 350 V2</option>
+          <option value="20">Yeezy 380</option>
+          <option value="21">Yeezy 500</option>
+          <option value="22">Yeezy 500 High</option>
+          <option value="23">Yeezy 700</option>
+          <option value="24">Yeezy 700 MNVN</option>
+          <option value="25">Yeezy 700 V2</option>
+          <option value="26">Yeezy 700 V3</option>
+          <option value="27">Yeezy 750</option>
+          <option value="28">Yeezy Desert Boot</option>
+          <option value="29">Yeezy Powerphase</option>
+          <option value="30">Yeezy QNTM</option>
+          <option value="31">Yeezy Slide</option>
+        </select><a href="#" title="Select the brand and model of your sneaker">！</a>
+         <br>
+        <select name="collab" id="collab" required>
+            <option disabled selected value>Collaboration?</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><a href="#" title="Is this sneaker a collaboration with a well-know artist or brand?">！</a>
+         <br>
+        <select name="classic" id="classic" required>
+            <option disabled selected value>Classic Colorway?</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><a href="#" title="Does this sneaker have classic colorway?">！</a>
+         <br>
+        <select name="limited" id="limited" required>
+            <option disabled selected value>Limited Release?</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><a href="#" title="Is this sneaker a limited release?">！</a>
+         <br>
+        <select name="gs" id="gs" required>
+          <option disabled selected value>Grade School?</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><a href="#" title="Is this sneaker grade school size?">！</a>
+         <br>
+        <select name="retail" id="retail" required>
+          <option disabled selected value>Retail Price?</option>
+          <option value="55">55</option>
+          <option value="60">60</option>
+          <option value="75">75</option>
+          <option value="90">90</option>
+          <option value="95">95</option>
+          <option value="100">100</option>
+          <option value="105">105</option>
+          <option value="110">110</option>
+          <option value="115">115</option>
+          <option value="120">120</option>
+          <option value="125">125</option>
+          <option value="130">130</option>
+          <option value="140">140</option>
+          <option value="145">145</option>
+          <option value="150">150</option>
+          <option value="155">155</option>
+          <option value="160">160</option>
+          <option value="170">170</option>
+          <option value="175">175</option>
+          <option value="180">180</option>
+          <option value="190">190</option>
+          <option value="200">200</option>
+          <option value="220">220</option>
+          <option value="230">230</option>
+          <option value="240">240</option>
+          <option value="250">250</option>
+          <option value="300">300</option>
+          <option value="350">350</option>
+          <option value="400">400</option>
+          <option value="700">700</option>
+        </select><a href="#" title="What is the retail price of this sneaker?">！</a>
+           <br>
+        <select name="size" id="size" required>
+            <option disabled selected value>Shoe Size?</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5">5</option>
+            <option value="5.5">5.5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+            <option value="13.5">13.5</option>
+            <option value="14">14</option>
+            <option value="14.5">14.5</option>
+            <option value="15">15</option>
+            <option value="15.5">15.5</option>
+            <option value="16">16</option>
+            <option value="16.5">16.5</option>
+            <option value="17">17</option>
+            <option value="17.5">17.5</option>
+            <option value="18">18</option>
+        </select><a href="#" title="What is the shoe size of your sneaker?">！</a>
+        <br><br>
+        <a>Note: Sneaker is considered to be profitable only if the resell price is over 20% of the retail price</a>
+        <br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large" onclick="checkEmpty()">Predict</button>
+    </form>
+
+   <br>
+   <br>
+
+   <br>
+
+ </div>
+</body>
+
+	<script>
+		$(function(){
+			$('#colo').searchableSelect();
+			$('#collab').searchableSelect();
+			$('#classic').searchableSelect();
+			$('#limited').searchableSelect();
+			$('#gs').searchableSelect();
+			$('#retail').searchableSelect();
+			$('#size').searchableSelect();
+		});
+		function checkEmpty(){
+			if($("#colo").val() == ""){
+				alert("Please select shoe model");
+				return;
+			}
+			if($("#collab").val() == ""){
+				alert("Please select whether it's a collaboration");
+				return;
+			}
+			if($("#classic").val() == ""){
+				alert("Please select whether it's a classic colorway ");
+				return;
+			}
+			if($("#limited").val() == ""){
+				alert("Please select whether it's a limited release");
+				return;
+			}
+			if($("#gs").val() == ""){
+				alert("Please select whether it's a grade school shoe");
+				return;
+			}
+			if($("#retail").val() == ""){
+				alert("Please select retail price");
+				return;
+			}
+			if($("#size").val() == ""){
+				alert("Please select shoe size");
+				return;
+			}
+
+		}
+
+	</script>
+
+</html>
