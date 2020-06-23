@@ -29,5 +29,8 @@ Users should be able to view the homepage as below :
 Users should enter all 7 features for the upcoming sneaker they want to predict.
 ![alt text](https://github.com/ianianing/example/blob/master/sample_selection.png)
 
-If everything goes well, users should  be able to results on a new html page as below!
+If everything goes well, users should  be able to see results on a new html page as below!
+Users can click on "Predict Other Sneakers" button if they want to predict profitability for a different sneaker
 ![alt text](https://github.com/ianianing/example/blob/master/sample_results.png)
+
+
