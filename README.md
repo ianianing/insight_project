@@ -15,7 +15,7 @@ This project has four major parts :
 4. statics - This folder contains CSS and JS files used for HTML templates.
 
 ### Running the project
-1. Run app.py using below command to start Flask API
+1. Run app.py using below command to start web app
 ```
 python app.py
 ```
@@ -30,7 +30,7 @@ Users should enter all 7 features for the upcoming sneaker they want to predict.
 ![alt text](https://github.com/ianianing/example/blob/master/sample_selection.png)
 
 If everything goes well, users should  be able to see results on a new html page as below!
-Users can click on "Predict Other Sneakers" button if they want to predict profitability for a different sneaker
+Users can click on "Predict Other Sneakers" button if they want to predict the profitability of a different sneaker
 ![alt text](https://github.com/ianianing/example/blob/master/sample_results.png)
 
 
