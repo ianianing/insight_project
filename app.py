@@ -5,7 +5,7 @@ import pandas as pd
 from scipy.spatial import distance
 
 app = Flask(__name__)
-sneaker = pickle.load(open('/home/ianyin/桌面/Insight_Project/sneaker.pkl', 'rb'))
+sneaker = pickle.load(open('sneaker.pkl', 'rb'))
 
 ######################routes#################################################################
 
